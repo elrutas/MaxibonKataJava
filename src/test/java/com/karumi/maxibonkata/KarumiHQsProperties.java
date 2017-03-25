@@ -24,14 +24,30 @@ import static org.mockito.Mockito.mock;
 
     @Property public void fridgeAlwaysHas2OrMoreMaxibons(
             @From(DevelopersGenerator.class) Developer developer) {
-//        System.out.println(developer);
+        karumiHQs.openFridge(developer);
+        assertTrue(karumiHQs.getMaxibonsLeft() > 2);
+    }
+
+    @Property(trials = 10) public void fridgeAlwaysHas2OrMoreMaxibonsForKarumies(
+            @From(KarumiesGenerator.class) Developer developer) {
         karumiHQs.openFridge(developer);
         assertTrue(karumiHQs.getMaxibonsLeft() > 2);
     }
 
     @Property(trials = 200) public void fridgeAlwaysHas2OrMoreMaxibons(
             List<@From(DevelopersGenerator.class) Developer> developers) {
-//        System.out.println(developer);
+        karumiHQs.openFridge(developers);
+        assertTrue(karumiHQs.getMaxibonsLeft() > 2);
+    }
+
+    @Property public void fridgeAlwaysHas2OrMoreMaxibonsWithHungryDevelopers(
+            List<@From(HungryDevelopersGenerator.class) Developer> developers) {
+        karumiHQs.openFridge(developers);
+        assertTrue(karumiHQs.getMaxibonsLeft() > 2);
+    }
+
+    @Property public void fridgeAlwaysHas2OrMoreMaxibonsWithNotSoHungryDevelopers(
+            List<@From(NotSoHungryDevelopersGenerator.class) Developer> developers) {
         karumiHQs.openFridge(developers);
         assertTrue(karumiHQs.getMaxibonsLeft() > 2);
     }
