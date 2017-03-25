@@ -24,13 +24,13 @@ import static org.junit.Assert.assertTrue;
             @From(DevelopersGenerator.class) Developer developer) {
 //        System.out.println(developer);
         karumiHQs.openFridge(developer);
-        assertTrue(karumiHQs.getMaxibonsLeft() >= 2);
+        assertTrue(karumiHQs.getMaxibonsLeft() > 2);
     }
 
     @Property public void fridgeAlwaysHas2OrMoreMaxibons(
             List<@From(DevelopersGenerator.class) Developer> developers) {
 //        System.out.println(developer);
         karumiHQs.openFridge(developers);
-        assertTrue(karumiHQs.getMaxibonsLeft() >= 2);
+        assertTrue(karumiHQs.getMaxibonsLeft() > 2);
     }
 }
