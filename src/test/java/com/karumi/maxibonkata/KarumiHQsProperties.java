@@ -29,7 +29,7 @@ import static org.mockito.Mockito.mock;
         assertTrue(karumiHQs.getMaxibonsLeft() > 2);
     }
 
-    @Property public void fridgeAlwaysHas2OrMoreMaxibons(
+    @Property(trials = 200) public void fridgeAlwaysHas2OrMoreMaxibons(
             List<@From(DevelopersGenerator.class) Developer> developers) {
 //        System.out.println(developer);
         karumiHQs.openFridge(developers);
