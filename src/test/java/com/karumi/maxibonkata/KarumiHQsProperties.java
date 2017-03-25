@@ -11,13 +11,15 @@ import org.junit.runner.RunWith;
 import java.util.List;
 
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
 
 @RunWith(JUnitQuickcheck.class) public class KarumiHQsProperties {
 
     private KarumiHQs karumiHQs;
 
     @Before public void setup() {
-        karumiHQs = new KarumiHQs();
+        Chat chat = mock(Chat.class);
+        karumiHQs = new KarumiHQs(chat);
     }
 
     @Property public void fridgeAlwaysHas2OrMoreMaxibons(
